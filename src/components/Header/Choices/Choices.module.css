@@ -9,10 +9,46 @@
   color: #ffffff;
 }
 
+.wrapper {
+  position: relative;
+}
+
+.list {
+  position: absolute;
+  top: 68px;
+  left: 0;
+  width: 300px;
+  padding: 20px 53px;
+  background: #00c78b;
+  font-weight: 700;
+  font-size: 18px;
+  color: #ffffff;
+  border-radius: 30px;
+}
+
+.item {
+  cursor: pointer;
+  line-height: 36px;
+  margin-bottom: 10px;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.item:hover {
+  color: #a0dfb4;
+}
+
 @media (max-width: 1024px) {
   .button {
     width: 220px;
     height: 45px;
+    font-size: 14px;
+  }
+
+  .list {
+    width: 220px;
     font-size: 14px;
   }
 }

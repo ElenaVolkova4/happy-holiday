@@ -1,11 +1,19 @@
-import Text from "./Text/Text";
-import Image from "./Image/Image";
+import Felicitation from "./Felicitation/Felicitation";
+import ImageCard from "./ImageCard/ImageCard";
+import style from "./Card.module.css";
+import CardBG from "../../images/card-bg.jpg";
 
 const Card = () => {
   return (
     <div>
-      <Text />
-      <Image />
+      <div className={style.card}>
+        <div className={style.wrapper}>
+          <div className={style.image}>
+            <Felicitation />
+            <ImageCard img={CardBG} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
