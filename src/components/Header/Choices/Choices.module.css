@@ -1,0 +1,24 @@
+.button {
+  width: 300px;
+  height: 65px;
+  border-radius: 30px;
+  border: none;
+  background: #00c78b;
+  font-weight: 700;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+@media (max-width: 1024px) {
+  .button {
+    width: 220px;
+    height: 45px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .buttons {
+    flex-direction: column;
+  }
+}
