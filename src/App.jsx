@@ -1,14 +1,14 @@
 import Card from "./components/Card/Card";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import { HolidayContextProvider } from "./context/holidayContext";
-import { ImgContextProvider } from "./context/imgConext";
-import { TextContextProvider } from "./context/textConext";
+import { HolidaysContextProvider } from "./context/holidaysContext";
+import { ImgContextProvider } from "./context/imgContext";
+import { TextContextProvider } from "./context/textContext";
 
 const App = () => {
   return (
     <div className="App">
-      <HolidayContextProvider>
+      <HolidaysContextProvider>
         <ImgContextProvider>
           <TextContextProvider>
             <Header />
@@ -16,7 +16,7 @@ const App = () => {
             <Footer />
           </TextContextProvider>
         </ImgContextProvider>
-      </HolidayContextProvider>
+      </HolidaysContextProvider>
     </div>
   );
 };

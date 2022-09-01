@@ -1,13 +1,13 @@
 import { createContext } from "react";
 import { useState } from "react";
 
-export const textConext = createContext({});
+export const textContext = createContext({});
 
 export const TextContextProvider = ({ children }) => {
   const [text, setText] = useState("Поздравляю");
   return (
-    <textConext.Provider value={{ text, setText }}>
+    <textContext.Provider value={{ text, setText }}>
       {children}
-    </textConext.Provider>
+    </textContext.Provider>
   );
 };

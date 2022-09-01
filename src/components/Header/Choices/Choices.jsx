@@ -1,24 +1,35 @@
 import style from "./Choices.module.css";
-import { useState } from "react";
-import { useContext } from "react";
+import { useState, useContext, useEffect } from "react";
+import { holidaysContext } from "../../../context/holidaysContext";
+import { URL_API } from "../../../const/const";
 
-import { holidayContext } from "../../../context/holidayContext";
-
-const holidays = {
-  newyear: "Новый год",
-  birthdayWomen: "День рождения  Ж",
-  birthdayMen: "День рождения  М",
-  womenDay: "8 марта",
-  knowledgeDay: "День знаний",
-};
+// сначала брали инфу из заглушки-массива
+// const holidays = {
+//   newyear: "Новый год",
+//   birthdayWomen: "День рождения  Ж",
+//   birthdayMen: "День рождения  М",
+//   womenDay: "8 марта",
+//   knowledgeDay: "День знаний",
+// };
 
 const Choices = () => {
   const [isOpenChoices, setIsOpenChoices] = useState(false);
-  // const [holiday, setHoliday] = useState("Выбрать праздник");
-  const [holiday, setHoliday] = useContext(holidayContext);
-  console.log(holiday);
+  // const [holiday, setHoliday] = useState("Выбрать праздник"); сначала брали из массива выше через useState, потом заменили на контекст
+  const { holiday, setHoliday } = useContext(holidaysContext);
+  //объект!!!!
 
-  // const { holiday } = useContext(holidayContext);
+  const [holidays, setHolidays] = useState({});
+
+  useEffect(() => {
+    fetch(URL_API)
+      .then((response) => {
+        if (response.status !== 200) {
+          throw new Error(response.status);
+        }
+        return response.json();
+      })
+      .then((data) => setHolidays(data).catch((err) => console.error(err)));
+  }, [setHolidays]);
 
   //показываем/прячем выбор праздников
   const toggleChoices = () => {
