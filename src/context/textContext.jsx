@@ -1,13 +1,17 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import { useState } from "react";
+import { useText } from "../hooks/useText";
+import { holidaysContext } from "./holidaysContext";
 
 export const textContext = createContext({});
 
 export const TextContextProvider = ({ children }) => {
-  const [text, setText] = useState("Поздравляю");
+  // достаем holiday из holidaysContext
+  const { holiday } = useContext(holidaysContext);
+
+  const [text] = useText(holiday);
+
   return (
-    <textContext.Provider value={{ text, setText }}>
-      {children}
-    </textContext.Provider>
+    <textContext.Provider value={{ text }}>{children}</textContext.Provider>
   );
 };
