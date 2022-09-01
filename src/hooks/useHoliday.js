@@ -12,7 +12,8 @@ export const useHolidays = () => {
         }
         return response.json();
       })
-      .then((data) => setHolidays(data).catch((err) => console.error(err)));
+      .then((data) => setHolidays(data))
+      .catch((err) => console.error(err));
   }, [setHolidays]);
 
   return [holidays];
