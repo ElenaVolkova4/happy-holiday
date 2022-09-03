@@ -1,5 +1,7 @@
 import { createContext } from "react";
 import { useState } from "react";
+import { URL_API } from "../const/const";
+import { useFetch } from "../hooks/useFetch";
 import { useHolidays } from "../hooks/useHoliday";
 
 export const holidaysContext = createContext({});
@@ -8,7 +10,9 @@ export const holidaysContext = createContext({});
 export const HolidaysContextProvider = ({ children }) => {
   const [holiday, setHoliday] = useState("");
 
-  const [holidays] = useHolidays();
+  // const [holidays] = useHolidays();
+  //для оптимизации создала общий хук useFetch и использую вместо useHolidays
+  const [holidays] = useFetch(URL_API);
 
   const changeHoliday = (title) => {
     setHoliday(title);

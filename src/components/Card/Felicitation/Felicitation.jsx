@@ -5,7 +5,11 @@ import style from "./Felicitation.module.css";
 const Felicitation = () => {
   const { text } = useContext(textContext);
 
-  return <p className={style.felicitation}>{text} </p>;
+  return (
+    <p className={style.felicitation}>
+      {text ?? "Выберите повод для поздравления"}{" "}
+    </p>
+  );
 };
 
 export default Felicitation;

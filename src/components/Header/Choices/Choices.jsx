@@ -4,7 +4,7 @@ import { holidaysContext } from "../../../context/holidaysContext";
 // import { useHolidays } from "../../../hooks/useHoliday";
 // import { URL_API } from "../../../const/const";
 
-// сначала брали инфу из заглушки-массива
+// сначала брала инфу из заглушки-массива
 // const holidays = {
 //   newyear: "Новый год",
 //   birthdayWomen: "День рождения  Ж",
@@ -15,11 +15,11 @@ import { holidaysContext } from "../../../context/holidaysContext";
 
 const Choices = () => {
   const [isOpenChoices, setIsOpenChoices] = useState(false);
-  // const [holiday, setHoliday] = useState("Выбрать праздник"); сначала брали из массива выше через useState, потом заменили на контекст
+  // const [holiday, setHoliday] = useState("Выбрать праздник"); сначала брала из массива выше через useState, потом заменила на контекст
   const { holiday, holidays, changeHoliday } = useContext(holidaysContext);
   //объект!!!!
 
-  //запрос к API (перенесено в отдельный хук)
+  //запрос к API (перенесен в отдельный хук)
   // const [holidays, setHolidays] = useState({});
 
   // useEffect(() => {
@@ -33,7 +33,7 @@ const Choices = () => {
   //     .then((data) => setHolidays(data).catch((err) => console.error(err)));
   // }, [setHolidays]);
 
-  // теперь достаем своим хуком - перенесено в holidaysContext
+  // теперь достаю своим хуком - перенесено в holidaysContext
   // const [holidays] = useHolidays();
 
   //показываем/прячем выбор праздников
