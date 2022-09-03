@@ -33,4 +33,7 @@
   .wrapper {
     flex-direction: column-reverse;
   }
+  .contacts {
+    align-items: center;
+  }
 }

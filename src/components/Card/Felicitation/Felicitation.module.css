@@ -7,3 +7,15 @@
   line-height: 1.6;
   white-space: pre-wrap;
 }
+
+@media screen and (max-width: 1024px) {
+  .felicitation {
+    line-height: 1;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .felicitation {
+    line-height: 1.3;
+  }
+}
