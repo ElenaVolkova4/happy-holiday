@@ -4,6 +4,7 @@ import { holidaysContext } from "../../../context/holidaysContext";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchHolidays, setHoliday } from "../../../store/holidaysSlice";
 import { fetchText } from "../../../store/textSlice";
+import { fetchImage } from "../../../store/imageSlice";
 // import { useHolidays } from "../../../hooks/useHoliday";
 // import { URL_API } from "../../../const/const";
 
@@ -77,6 +78,7 @@ const Choices = () => {
                 // changeHoliday(item[0]); засеняем на redux
                 dispatch(setHoliday(item[0]));
                 dispatch(fetchText(item[0]));
+                dispatch(fetchImage(item[0]));
                 toggleChoices();
               }}
             >

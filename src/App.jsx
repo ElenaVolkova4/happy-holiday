@@ -8,15 +8,15 @@ import { TextContextProvider } from "./context/textContext";
 const App = () => {
   return (
     <div className="App">
-      <HolidaysContextProvider>
+      {/* <HolidaysContextProvider>
         <ImgContextProvider>
-          <TextContextProvider>
-            <Header />
-            <Card />
-            <Footer />
-          </TextContextProvider>
+          <TextContextProvider> */}
+      <Header />
+      <Card />
+      <Footer />
+      {/* </TextContextProvider>
         </ImgContextProvider>
-      </HolidaysContextProvider>
+      </HolidaysContextProvider> */}
     </div>
   );
 };
