@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { URL_API } from "../const/const";
 
 export const useImg = (holiday) => {
-  const [img, setImg] = useState("");
+  // const [urlImg, setUrlImg] = useState({});
+
+  const [data, setData] = useState({});
 
   useEffect(() => {
     if (!holiday) return;
-    fetch(`${URL_API}/image/${holiday}`)
+    fetch(`${URL_API}image/${holiday}`)
       .then((response) => {
         if (response.status !== 200) {
           throw new Error(response.status);
@@ -14,12 +16,13 @@ export const useImg = (holiday) => {
         return response.json();
       })
       .then((data) => {
-        if (data.image) {
-          setImg(data.image);
+        if (data.idImg) {
+          setData(data);
         }
       })
       .catch((err) => console.error(err));
   }, [holiday]);
 
-  return [img];
+  // console.log(data);
+  return data;
 };

@@ -11,7 +11,9 @@ export const ImgContextProvider = ({ children }) => {
   // достаем holiday из holidaysContext
   const { holiday } = useContext(holidaysContext);
 
-  const [img] = useImg(holiday);
-  console.log(img);
-  return <imgContext.Provider value={{ img }}>{children}</imgContext.Provider>;
+  const { urlImg } = useImg(holiday);
+  // console.log(urlImg);
+  return (
+    <imgContext.Provider value={{ urlImg }}>{children}</imgContext.Provider>
+  );
 };
