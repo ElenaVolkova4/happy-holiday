@@ -29,7 +29,7 @@
   color: #ebb52f;
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
   .wrapper {
     flex-direction: column-reverse;
   }

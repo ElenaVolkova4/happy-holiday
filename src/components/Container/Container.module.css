@@ -4,7 +4,7 @@
   margin: 0 auto;
 }
 
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .container {
     padding: 0 10px;
   }
