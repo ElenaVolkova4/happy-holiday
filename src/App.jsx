@@ -20,6 +20,7 @@ const App = () => {
         <Route index element={<EmptyCard />} />
         <Route path="card/:holiday" element={<Card />} />
       </Route>
+      <Route path="singleCard/:idText/:idImg" element={<Card />} />
     </Routes>
     // <Footer />
     // </TextContextProvider>
