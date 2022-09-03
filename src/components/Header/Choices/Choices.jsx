@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchHolidays, setHoliday } from "../../../store/holidaysSlice";
 import { fetchText } from "../../../store/textSlice";
 import { fetchImage } from "../../../store/imageSlice";
+import { NavLink, useParams } from "react-router-dom";
 // import { useHolidays } from "../../../hooks/useHoliday";
 // import { URL_API } from "../../../const/const";
 
@@ -41,8 +42,9 @@ const Choices = () => {
   // const [holidays] = useHolidays();
 
   //замена контекста на redux
-  const { holiday, holidays, loading } = useSelector((state) => state.holidays);
+  const { holidays, loading } = useSelector((state) => state.holidays);
   const dispatch = useDispatch();
+  const { holiday } = useParams();
 
   //показываем/прячем выбор праздников
   const toggleChoices = () => {
@@ -59,7 +61,11 @@ const Choices = () => {
 
   useEffect(() => {
     dispatch(fetchHolidays());
-  }, [dispatch]);
+    if (holiday) {
+      dispatch(fetchText(holiday));
+      dispatch(fetchImage(holiday));
+    }
+  }, [dispatch, holiday]);
 
   return (
     <div className={style.wrapper}>
@@ -76,13 +82,19 @@ const Choices = () => {
               key={item[0]}
               onClick={() => {
                 // changeHoliday(item[0]); засеняем на redux
-                dispatch(setHoliday(item[0]));
-                dispatch(fetchText(item[0]));
-                dispatch(fetchImage(item[0]));
+                // dispatch(setHoliday(item[0]));
+                // dispatch(fetchText(item[0]));
+                // dispatch(fetchImage(item[0]));
                 toggleChoices();
               }}
             >
-              {item[1]}
+              <NavLink
+                to={`card/${item[0]}`}
+                className={({ isActive }) => (isActive ? style.linkActive : "")}
+              >
+                {" "}
+                {item[1]}
+              </NavLink>
             </li>
           ))}
         </ul>

@@ -40,6 +40,10 @@
   color: #a0dfb4;
 }
 
+.linkActive {
+  color: #af701f;
+}
+
 @media (max-width: 1024px) {
   .button {
     width: 220px;
